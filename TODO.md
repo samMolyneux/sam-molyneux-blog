@@ -1,0 +1,3 @@
+- rss feed
+- why does it look like I time travelled?
+- split bikepacking/general blog
