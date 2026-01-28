@@ -65,6 +65,10 @@ Create a blog post outline from images in the `$ARGUMENTS` folder:
                 class="feature-image feature-image-landscape">
         </figure>
 
+        <section class="desc">
+            <p><a href="/about">Why does it feel like I've gone through a time machine?</a></p>
+        </section>
+
     </main>
 </body>
 
