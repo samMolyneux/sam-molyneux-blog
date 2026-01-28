@@ -77,7 +77,7 @@ Create a blog post outline from images in the `$ARGUMENTS` folder:
 ```
 
 6. Replace placeholders:
-   - [TITLE] with the folder name, replacing underscores with spaces, each word capitalized (e.g., "agadir_to_sidi_ifni" becomes "Agadir To Sidi Ifni")
+   - [TITLE] with the folder name, replacing underscores with spaces, using sentence case - capitalize first word and proper nouns only, keep words like "to", "the", "a", "and", "of" lowercase (e.g., "agadir_to_sidi_ifni" becomes "Agadir to Sidi Ifni")
    - [TODAY'S DATE] with today's date formatted as "Month DDth YYYY" (e.g., "January 28th 2026")
    - [FOLDER] with the folder name as provided
    - [FILENAME] with each image filename
