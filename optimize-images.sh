@@ -29,7 +29,8 @@ echo ""
 count=0
 saved=0
 
-for img in "$DIR"/*.{jpg,jpeg,JPG,JPEG,png,PNG} 2>/dev/null; do
+shopt -s nullglob
+for img in "$DIR"/*.jpg "$DIR"/*.jpeg "$DIR"/*.JPG "$DIR"/*.JPEG "$DIR"/*.png "$DIR"/*.PNG; do
     [ -f "$img" ] || continue
 
     original_size=$(stat -c%s "$img")
