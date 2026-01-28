@@ -1,12 +1,12 @@
 ---
 name: create-blog-post
-description: Create a new blog post from a folder of images
+description: Create a new bikepacking blog post from a folder of images
 disable-model-invocation: true
 allowed-tools: Read, Bash, Write, Glob, Edit, AskUserQuestion
 argument-hint: [folder-name]
 ---
 
-Create a blog post outline from images in the `$ARGUMENTS` folder:
+Create a bikepacking blog post outline from images in the `$ARGUMENTS` folder:
 
 1. Optimize all images in the folder:
    ```bash
@@ -19,18 +19,21 @@ Create a blog post outline from images in the `$ARGUMENTS` folder:
    - **Dates covered**: The date range for this blog post (e.g., "January 5th to 7th 2026")
    - **Blog summary**: A short description for the blog index page (e.g., "Cycling along the coast from Agadir to Sidi Ifni")
 
-4. Add an article entry to `blog/index.html` at the top (after `<h1>Blog</h1>`), using this template:
+4. Add an article entry to both index files:
+   - Add to `bikepacking/index.html` at the top (after `<h1>Bikepacking</h1>`)
+   - Add to `blog/index.html` at the top (after the intro `<p class="block">All posts from...`)
 
-```html
-        <article class="block">
-            <span><h2>[TITLE]</h2> [DATES COVERED]</span>
-            <p><small>Published [TODAY'S DATE]</small></p>
+   Use this template for both files:
+   ```html
+           <article class="block">
+               <span><h2>[TITLE]</h2> [DATES COVERED]</span>
+               <p><small>Published [TODAY'S DATE]</small></p>
 
-            <p>[BLOG SUMMARY] (<a href="/bikepacking/[FOLDER]">read '[TITLE]'</a>)
-            </p>
+               <p>[BLOG SUMMARY] (<a href="/bikepacking/[FOLDER]">read '[TITLE]'</a>)
+               </p>
 
-        </article>
-```
+           </article>
+   ```
 
 5. Create `bikepacking/$ARGUMENTS/index.html` using this template:
 
@@ -85,4 +88,18 @@ Create a blog post outline from images in the `$ARGUMENTS` folder:
 
 7. Add a figure.block for every image found in the folder (no figcaption needed initially)
 
-8. Report what was created
+8. Update the RSS feeds (both `bikepacking/feed.xml` and `blog/feed.xml`):
+
+   Add a new `<item>` at the top of the `<channel>` (after the `<atom:link>` element):
+   ```xml
+       <item>
+         <title>[TITLE]</title>
+         <link>https://sam-molyneux.com/bikepacking/[FOLDER]</link>
+         <pubDate>[RFC822_DATE]</pubDate>
+         <description>[BLOG SUMMARY]</description>
+       </item>
+   ```
+
+   Where [RFC822_DATE] is today's date in RFC 822 format (e.g., "Tue, 28 Jan 2026 00:00:00 +0000")
+
+9. Report what was created

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sam Molyneux - Bikepacking</title>
+    <link>https://sam-molyneux.com/bikepacking</link>
+    <description>Bikepacking photos and stories</description>
+    <atom:link href="https://sam-molyneux.com/bikepacking/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Tamraght to Essaouira</title>
+      <link>https://sam-molyneux.com/bikepacking/tamraght_to_essaouira</link>
+      <pubDate>Tue, 28 Jan 2026 00:00:00 +0000</pubDate>
+      <description>Through some more mountains and up the coast to Essaouira via Imsouane</description>
+    </item>
+    <item>
+      <title>Tamraght and Taghazout</title>
+      <link>https://sam-molyneux.com/bikepacking/tamraght_and_taghazout</link>
+      <pubDate>Tue, 28 Jan 2026 00:00:00 +0000</pubDate>
+      <description>A stay at the aptly named 'Chill Surfer hostel'</description>
+    </item>
+    <item>
+      <title>Tafraout to Tamraght</title>
+      <link>https://sam-molyneux.com/bikepacking/tafraout_to_tamraght</link>
+      <pubDate>Tue, 28 Jan 2026 00:00:00 +0000</pubDate>
+      <description>Three days of great cycling (mostly) back towards the coast.</description>
+    </item>
+    <item>
+      <title>Tafraout</title>
+      <link>https://sam-molyneux.com/bikepacking/tafraout</link>
+      <pubDate>Tue, 28 Jan 2026 00:00:00 +0000</pubDate>
+      <description>A rest day exploring Tafraout</description>
+    </item>
+    <item>
+      <title>Sidi Ifni to Tafraout</title>
+      <link>https://sam-molyneux.com/bikepacking/sidi_ifni_to_tafraout</link>
+      <pubDate>Tue, 28 Jan 2026 00:00:00 +0000</pubDate>
+      <description>Climbing inland from Sidi Ifni to Tafraout</description>
+    </item>
+    <item>
+      <title>Sidi Ifni</title>
+      <link>https://sam-molyneux.com/bikepacking/sidi_ifni</link>
+      <pubDate>Tue, 28 Jan 2026 00:00:00 +0000</pubDate>
+      <description>A full rest day in the southern surf town</description>
+    </item>
+    <item>
+      <title>Agadir to Sidi Ifni</title>
+      <link>https://sam-molyneux.com/bikepacking/agadir_to_sidi_ifni</link>
+      <pubDate>Tue, 28 Jan 2026 00:00:00 +0000</pubDate>
+      <description>Cycling along the coast from Agadir to Sidi Ifni</description>
+    </item>
+    <item>
+      <title>Agadir</title>
+      <link>https://sam-molyneux.com/bikepacking/agadir</link>
+      <pubDate>Sun, 25 Jan 2026 00:00:00 +0000</pubDate>
+      <description>My first stop in Morocco and thus my first blog post</description>
+    </item>
+  </channel>
+</rss>
