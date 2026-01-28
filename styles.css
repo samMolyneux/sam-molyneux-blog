@@ -66,20 +66,21 @@ h3 {
   text-align: center;
 }
 
-/* block list styles */
-.block ul {
+.projects-list ul {
   list-style-type: none;
 }
 
-.block li {
+.projects-list li {
   margin-bottom: 8px;
 }
 
-.block li img {
+.projects-list li img {
   height: 1.2em;
   vertical-align: middle;
   margin-right: 6px;
 }
+
+/* block list styles */
 
 .block h2 {
   display: inline-block;
