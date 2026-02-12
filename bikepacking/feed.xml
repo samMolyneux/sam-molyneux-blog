@@ -6,6 +6,12 @@
     <description>Bikepacking photos and stories</description>
     <atom:link href="https://sam-molyneux.com/bikepacking/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
+      <title>Essaouira part one</title>
+      <link>https://sam-molyneux.com/bikepacking/essaouira-part-one</link>
+      <pubDate>Thu, 12 Feb 2026 00:00:00 +0000</pubDate>
+      <description>The first couple of weeks in Essaouira</description>
+    </item>
+    <item>
       <title>Tamraght to Essaouira</title>
       <link>https://sam-molyneux.com/bikepacking/tamraght_to_essaouira</link>
       <pubDate>Tue, 28 Jan 2026 00:00:00 +0000</pubDate>
