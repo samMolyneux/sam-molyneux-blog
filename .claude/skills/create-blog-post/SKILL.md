@@ -45,6 +45,13 @@ Create a bikepacking blog post outline from images in the `$ARGUMENTS` folder:
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sam Molyneux - [TITLE]</title>
+    <meta name="description" content="[BLOG SUMMARY]">
+    <link rel="canonical" href="https://sam-molyneux.com/bikepacking/[FOLDER]/">
+    <meta property="og:title" content="Sam Molyneux - [TITLE]">
+    <meta property="og:description" content="[BLOG SUMMARY]">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sam-molyneux.com/bikepacking/[FOLDER]/">
+    <meta property="og:image" content="https://sam-molyneux.com/images/[FOLDER]/[FIRST_IMAGE]">
     <link rel="stylesheet" href="/styles.css">
 </head>
 
@@ -100,4 +107,16 @@ Create a bikepacking blog post outline from images in the `$ARGUMENTS` folder:
 
    Where [RFC822_DATE] is today's date in RFC 822 format (e.g., "Tue, 28 Jan 2026 00:00:00 +0000")
 
-9. Report what was created
+9. Update `bikepacking/index.html`'s `og:image` meta tag to point to the new post's first image:
+   ```html
+   <meta property="og:image" content="https://sam-molyneux.com/images/[FOLDER]/[FIRST_IMAGE]">
+   ```
+
+10. Append the new post URL to `sitemap.xml` (before the closing `</urlset>` tag):
+    ```xml
+      <url>
+        <loc>https://sam-molyneux.com/bikepacking/[FOLDER]/</loc>
+      </url>
+    ```
+
+11. Report what was created
