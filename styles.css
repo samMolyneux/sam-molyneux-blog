@@ -24,7 +24,6 @@ header {
 
 h1,
 .site-title {
-  display: inline;
   font-size: 2.5rem;
   color: #2c3e50;
   margin-block-start: 0.67em;
@@ -33,6 +32,10 @@ h1,
   margin-inline-end: 0px;
   font-weight: bold;
   unicode-bidi: isolate;
+}
+
+nav h1 {
+  display: inline;
 }
 
 header img {
@@ -88,10 +91,6 @@ h3 {
 
 /* block list styles */
 
-.block h2 {
-  display: inline-block;
-}
-
 .block {
   padding: 40px;
   /* background: #f0e9de; */
@@ -141,23 +140,12 @@ footer {
   font-size: 0.9rem;
 }
 
-/* Post/article title line spacing */
-main.post>span:first-child,
-article.block>span:first-child {
-  display: block;
+hgroup h1,
+hgroup h2 {
+  margin: 0;
 }
 
-/* Remove h1/h2 bottom margin in title line */
-main.post>span:first-child h1,
-article.block>span:first-child h2 {
-  margin-block-end: 0;
-  margin-bottom: 0;
-}
-
-/* Published date - tight to title, space below */
-main.post>span:first-child+p,
-article.block>span:first-child+p {
-  margin-top: 0;
+hgroup + p {
   margin-bottom: 1em;
 }
 

@@ -26,7 +26,10 @@ Create a bikepacking blog post outline from images in the `$ARGUMENTS` folder:
    Use this template for both files:
    ```html
            <article class="block">
-               <span><h2>[TITLE]</h2> [DATES COVERED]</span>
+               <hgroup>
+                   <h2>[TITLE]</h2>
+                   <p>[DATES COVERED]</p>
+               </hgroup>
                <p><small>Published [TODAY'S DATE]</small></p>
 
                <p>[BLOG SUMMARY] (<a href="/bikepacking/[FOLDER]">read '[TITLE]'</a>)
@@ -57,13 +60,19 @@ Create a bikepacking blog post outline from images in the `$ARGUMENTS` folder:
 
 <body>
     <header>
-        <a href="/bikepacking" class="link-unstyled"><img src="/gifs/bike.gif" alt="Bikepacking"></a>
-        <a href="/" class="link-unstyled"><span class="site-title">Sam Molyneux</span></a>
-        <a href="/tech" class="link-unstyled"><img src="/gifs/pc-transparent.gif" alt="Tech"></a>
+        <nav>
+            <a href="/bikepacking" class="link-unstyled"><img src="/gifs/bike.gif" alt="Bikepacking"></a>
+            <a href="/" class="link-unstyled"><span class="site-title">Sam Molyneux</span></a>
+            <a href="/tech" class="link-unstyled"><img src="/gifs/pc-transparent.gif" alt="Tech"></a>
+        </nav>
     </header>
 
     <main class="post">
-        <span><h1>[TITLE]</h1> [DATES COVERED]</span>
+        <article>
+        <hgroup>
+            <h1>[TITLE]</h1>
+            <p>[DATES COVERED]</p>
+        </hgroup>
         <p><small>Published [TODAY'S DATE]</small></p>
 
         <!-- For each image, add a figure block like this: -->
@@ -72,6 +81,8 @@ Create a bikepacking blog post outline from images in the `$ARGUMENTS` folder:
                 alt=""
                 class="feature-image feature-image-landscape">
         </figure>
+
+        </article>
 
         <section class="desc">
             <p><a href="/about">Why does it feel like I've gone through a time machine?</a></p>
