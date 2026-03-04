@@ -1,9 +1,6 @@
 ---
 name: create-blog-post
 description: Create a new bikepacking blog post from a folder of images
-disable-model-invocation: true
-allowed-tools: Read, Bash, Write, Glob, Edit, AskUserQuestion
-argument-hint: [folder-name]
 ---
 
 Create a bikepacking blog post outline from images in the `$ARGUMENTS` folder:
@@ -21,7 +18,7 @@ Create a bikepacking blog post outline from images in the `$ARGUMENTS` folder:
 
 4. Add an article entry to both index files:
    - Add to `bikepacking/index.html` at the top (after `<h1>Bikepacking</h1>`)
-   - Add to `blog/index.html` at the top (after the intro `<p class="block">All posts from...`)
+   - Add to `blog/index.html` at the top (after `<h1>Blog</h1>`)
 
    Use this template for both files:
    ```html
@@ -76,6 +73,7 @@ Create a bikepacking blog post outline from images in the `$ARGUMENTS` folder:
         <p><small>Published [TODAY'S DATE]</small></p>
 
         <!-- For each image, add a figure block like this: -->
+        <!-- Use feature-image-landscape for landscape images, feature-image-portrait for portrait -->
         <figure class="block">
             <img src="/images/[FOLDER]/[FILENAME]"
                 alt=""
