@@ -1,5 +1,13 @@
 # Sam Molyneux Blog
 
+## Local Preview
+
+```bash
+npx wrangler pages dev .
+```
+
+Then open http://localhost:8788.
+
 ## Deployment
 
 Deploy to Cloudflare Pages using Wrangler:

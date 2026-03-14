@@ -16,7 +16,7 @@ if [ ! -d "$DIR" ]; then
 fi
 
 # Check for ImageMagick
-if ! command -v convert &> /dev/null; then
+if ! command -v magick &> /dev/null; then
     echo "Error: ImageMagick is not installed"
     echo "Install with: sudo pacman -S imagemagick"
     exit 1
@@ -36,15 +36,28 @@ for img in "$DIR"/*.jpg "$DIR"/*.jpeg "$DIR"/*.JPG "$DIR"/*.JPEG "$DIR"/*.png "$
     original_size=$(stat -c%s "$img")
     original_kb=$((original_size / 1024))
 
+    # Read EXIF creation date before stripping
+    exif_date=$(magick identify -format '%[EXIF:DateTimeOriginal]' "$img" 2>/dev/null || echo "")
+
     echo -n "Processing: $(basename "$img") (${original_kb}KB) -> "
 
-    convert "$img" -resize "${MAX_WIDTH}x>" -quality "$QUALITY" -strip "$img"
+    magick "$img" -auto-orient -resize "${MAX_WIDTH}x>" -quality "$QUALITY" -strip "$img"
 
     new_size=$(stat -c%s "$img")
     new_kb=$((new_size / 1024))
     saved_kb=$((original_kb - new_kb))
 
-    echo "${new_kb}KB (saved ${saved_kb}KB)"
+    # Detect orientation from dimensions
+    dims=$(magick identify -format '%w %h' "$img")
+    w=$(echo "$dims" | cut -d' ' -f1)
+    h=$(echo "$dims" | cut -d' ' -f2)
+    if [ "$h" -gt "$w" ]; then
+        orientation="portrait"
+    else
+        orientation="landscape"
+    fi
+
+    echo "${new_kb}KB (saved ${saved_kb}KB) [${orientation}] [date:${exif_date}]"
 
     count=$((count + 1))
     saved=$((saved + saved_kb))

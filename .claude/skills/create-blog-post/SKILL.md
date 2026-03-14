@@ -5,15 +5,17 @@ description: Create a new bikepacking blog post from a folder of images
 
 Create a bikepacking blog post outline from images in the `$ARGUMENTS` folder:
 
-1. Optimize all images in the folder:
+1. Optimize all images in the folder and note orientations from the output:
    ```bash
    ./optimize-images.sh images/$ARGUMENTS
    ```
+   The script auto-orients images and outputs per image:
+   - `[landscape]` or `[portrait]` — parse to determine the correct CSS class (`feature-image-landscape` or `feature-image-portrait`)
+   - `[date:YYYY:MM:DD HH:MM:SS]` — EXIF creation date. Parse the earliest and latest dates across all images to derive [DATES COVERED], formatted as "Month DDth to DDth YYYY" (e.g., "February 23rd to 28th 2026") or spanning months (e.g., "January 30th to February 5th 2026").
 
 2. Use Glob to find all images in `images/$ARGUMENTS/`
 
 3. Use AskUserQuestion to prompt for:
-   - **Dates covered**: The date range for this blog post (e.g., "January 5th to 7th 2026")
    - **Blog summary**: A short description for the blog index page (e.g., "Cycling along the coast from Agadir to Sidi Ifni")
 
 4. Add an article entry to both index files:
@@ -95,12 +97,12 @@ Create a bikepacking blog post outline from images in the `$ARGUMENTS` folder:
 6. Replace placeholders:
    - [TITLE] with the folder name, replacing underscores with spaces, using sentence case - capitalize first word and proper nouns only, keep words like "to", "the", "a", "and", "of" lowercase (e.g., "agadir_to_sidi_ifni" becomes "Agadir to Sidi Ifni")
    - [TODAY'S DATE] with today's date formatted as "Month DDth YYYY" (e.g., "January 28th 2026")
-   - [DATES COVERED] with the user's answer from step 3
+   - [DATES COVERED] with the date range derived from EXIF dates in step 1
    - [FOLDER] with the folder name as provided
    - [FILENAME] with each image filename
    - [BLOG SUMMARY] with the user's answer from step 3
 
-7. Add a figure.block for every image found in the folder (no figcaption needed initially)
+7. Add a figure.block for every image found in the folder (no figcaption needed initially). Use the orientation detected in step 1 to set the correct class (`feature-image-landscape` or `feature-image-portrait`) for each image.
 
 8. Update the RSS feeds (both `bikepacking/feed.xml` and `blog/feed.xml`):
 
