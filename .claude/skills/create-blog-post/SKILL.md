@@ -102,9 +102,11 @@ Create a bikepacking blog post outline from images in the `$ARGUMENTS` folder:
    - [FILENAME] with each image filename
    - [BLOG SUMMARY] with the user's answer from step 3
 
-7. Add a figure.block for every image found in the folder (no figcaption needed initially). Use the orientation detected in step 1 to set the correct class (`feature-image-landscape` or `feature-image-portrait`) for each image.
+7. Add a figure.block for every image found in the folder. Use the orientation detected in step 1 to set the correct class (`feature-image-landscape` or `feature-image-portrait`) for each image.
 
-8. Update the RSS feeds (both `bikepacking/feed.xml` and `blog/feed.xml`):
+8. Generate alt text for each image by reading the image file with the Read tool, then writing a concise descriptive alt text for the `alt` attribute. Keep descriptions short (under ~15 words) and focus on the scene content.
+
+9. Update the RSS feeds (both `bikepacking/feed.xml` and `blog/feed.xml`):
 
    Add a new `<item>` at the top of the `<channel>` (after the `<atom:link>` element):
    ```xml
@@ -118,16 +120,18 @@ Create a bikepacking blog post outline from images in the `$ARGUMENTS` folder:
 
    Where [RFC822_DATE] is today's date in RFC 822 format (e.g., "Tue, 28 Jan 2026 00:00:00 +0000")
 
-9. Update `bikepacking/index.html`'s `og:image` meta tag to point to the new post's first image:
+10. Update `bikepacking/index.html`'s `og:image` meta tag to point to the new post's first image:
    ```html
    <meta property="og:image" content="https://sam-molyneux.com/images/[FOLDER]/[FIRST_IMAGE]">
    ```
 
-10. Append the new post URL to `sitemap.xml` (before the closing `</urlset>` tag):
+11. Append the new post URL to `sitemap.xml` (before the closing `</urlset>` tag):
     ```xml
       <url>
         <loc>https://sam-molyneux.com/bikepacking/[FOLDER]/</loc>
       </url>
     ```
 
-11. Report what was created
+12. Check that what was created matches the other bikepacking blog posts, highlight any differences to the standard pattern.
+
+13. Report what was created
