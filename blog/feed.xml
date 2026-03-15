@@ -6,6 +6,12 @@
     <description>All posts - bikepacking and technical writing</description>
     <atom:link href="https://sam-molyneux.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
+      <title>El Jadida to Fes</title>
+      <link>https://sam-molyneux.com/bikepacking/el_jadida_to_fes</link>
+      <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
+      <description>Through farmland to Fes under dense, low cloud</description>
+    </item>
+    <item>
       <title>El Jadida</title>
       <link>https://sam-molyneux.com/bikepacking/el_jadida</link>
       <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>

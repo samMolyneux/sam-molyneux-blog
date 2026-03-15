@@ -1,7 +1,5 @@
 /* Reset and base styles */
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
@@ -101,6 +99,7 @@ h3 {
   margin: 20px;
 }
 
+
 .center {
   text-align: center;
 }
@@ -145,7 +144,7 @@ hgroup h2 {
   margin: 0;
 }
 
-hgroup + p {
+hgroup+p {
   margin-bottom: 1em;
 }
 
