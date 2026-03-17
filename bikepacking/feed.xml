@@ -6,6 +6,12 @@
     <description>Bikepacking photos and stories</description>
     <atom:link href="https://sam-molyneux.com/bikepacking/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
+      <title>Tetouan to Tangier</title>
+      <link>https://sam-molyneux.com/bikepacking/tetouan_to_tangier</link>
+      <pubDate>Tue, 17 Mar 2026 00:00:00 +0000</pubDate>
+      <description>Last day of riding in Morocco</description>
+    </item>
+    <item>
       <title>Tetouan</title>
       <link>https://sam-molyneux.com/bikepacking/tetouan</link>
       <pubDate>Tue, 17 Mar 2026 00:00:00 +0000</pubDate>
