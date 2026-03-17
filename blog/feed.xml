@@ -6,9 +6,15 @@
     <description>All posts - bikepacking and technical writing</description>
     <atom:link href="https://sam-molyneux.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
+      <title>Fes to Chefchaouen</title>
+      <link>https://sam-molyneux.com/bikepacking/fes_to_chefchaouen</link>
+      <pubDate>Tue, 17 Mar 2026 00:00:00 +0000</pubDate>
+      <description>Rain and mechanical issues balanced with stunning views into Chefchaouen</description>
+    </item>
+    <item>
       <title>Fes</title>
       <link>https://sam-molyneux.com/bikepacking/fes</link>
-      <pubDate>Sun, 15 Mar 2026 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 17 Mar 2026 00:00:00 +0000</pubDate>
       <description>A day wandering the medina</description>
     </item>
     <item>
