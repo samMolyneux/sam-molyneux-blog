@@ -9,7 +9,13 @@
       <title>How I'm coding in March 2026</title>
       <link>https://sam-molyneux.com/tech/coding_march_2026</link>
       <pubDate>Thu, 19 Mar 2026 00:00:00 +0000</pubDate>
-      <description>A snapshot of my development setup and how I'm using AI tools to build software</description>
+      <description>A snapshot of my development setup</description>
+    </item>
+    <item>
+      <title>human.json</title>
+      <link>https://sam-molyneux.com/tech/human_json</link>
+      <pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate>
+      <description>Adding a human.json file to the site</description>
     </item>
     <item>
       <title>Tarifa to Cadiz</title>
