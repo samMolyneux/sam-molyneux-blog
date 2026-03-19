@@ -5,5 +5,11 @@
     <link>https://sam-molyneux.com/tech</link>
     <description>Technical writing and other thoughts</description>
     <atom:link href="https://sam-molyneux.com/tech/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>How I'm coding in March 2026</title>
+      <link>https://sam-molyneux.com/tech/coding_march_2026</link>
+      <pubDate>Thu, 19 Mar 2026 00:00:00 +0000</pubDate>
+      <description>A snapshot of my development setup and how I'm using AI tools to build software</description>
+    </item>
   </channel>
 </rss>

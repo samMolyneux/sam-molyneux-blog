@@ -131,6 +131,13 @@ h3 {
   height: auto;
 }
 
+blockquote {
+  border-left: 3px solid #999;
+  margin-left: 0;
+  padding-left: 1em;
+  color: #555;
+}
+
 /* Footer styles */
 footer {
   text-align: center;

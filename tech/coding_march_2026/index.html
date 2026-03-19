@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sam Molyneux - How I'm coding in March 2026</title>
+    <meta name="description" content="A snapshot of how I'm building software with AI tools in March 2026">
+    <link rel="canonical" href="https://sam-molyneux.com/tech/coding_march_2026/">
+    <link rel="human-json" href="/human.json">
+    <meta property="og:title" content="Sam Molyneux - How I'm coding in March 2026">
+    <meta property="og:description" content="A snapshot of how I'm building software with AI tools in March 2026">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sam-molyneux.com/tech/coding_march_2026/">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="/bikepacking" class="link-unstyled"><img src="/gifs/bike.gif" alt="Bikepacking"></a>
+            <a href="/" class="link-unstyled"><span class="site-title">Sam Molyneux</span></a>
+            <a href="/tech" class="link-unstyled"><img src="/gifs/pc-transparent.gif" alt="Tech"></a>
+        </nav>
+    </header>
+
+    <main class="post">
+        <article>
+            <hgroup>
+                <h1>How I'm coding in March 2026</h1>
+            </hgroup>
+            <p><small>Published March 19th 2026</small></p>
+
+            <section class="block">
+                <p>The way we build software is changing rapidly. All of the ingrained mental loops and best practices
+                    are being torn up and innovated on at an incredibly high rate and so I've written this blog post for
+                    a few reasons:</p>
+
+                <p>It will be fun to 'draw a line in the sand' and see how much things have changed in 3 months, 6
+                    months, 1 year etc with something to look back on.</p>
+
+                <p>I want an excuse to think about my approach more deeply and writing is a good way to do that.</p>
+
+                <p>Previously everyone was pretty much doing development in the same way - now with developers
+                    innovating in their own bubbles, creating solutions and practices that fit their own needs, it would
+                    be easy for blind spots to appear. Please critique my ideas in this post and let me know if you have
+                    preferred alternatives or solutions to my problems.</p>
+
+                <p>Many of the things noted here have been inspired by/stolen from public figures in the field - I would
+                    love to get similar insight into how my friends/colleagues are working so I'm hoping to start a
+                    trend.</p>
+
+                <h2>Current usage</h2>
+
+                <h3>Web applications</h3>
+
+                <p>I've been spending some time writing small-scale web applications, largely as an excuse to experiment
+                    with new tools and techniques in a low-stakes-but-still-production context.</p>
+
+                <p>I'm making heavy usage of Claude Code, mainly running Opus 4.6 and depending on the complexity and
+                    particularity of a feature I'm generally interacting with it in one of the following ways:</p>
+
+                <h4>Claude Code CLI locally in plan mode</h4>
+
+                <p>For large features that require careful oversight due to security or are likely to need a back and
+                    forth to get the implementation or look and feel the way I like it.</p>
+
+                <p>I generally spend a good amount of time asking the model to elaborate on parts of the plan and
+                    structure my prompts so that it asks me lots of questions about how the feature should be
+                    implemented. When writing code this way I will somewhat regularly switch into vscode and make small
+                    changes manually or via the Claude Code extension.</p>
+
+                <p>Some features implemented this way:</p>
+                <ul>
+                    <li>authentication</li>
+                    <li>persistence</li>
+                    <li>initial application sketch out</li>
+                </ul>
+
+                <h4>Claude Code CLI remote</h4>
+
+                <p>For medium or large but well scoped features and more ambitious experiments that I want to see if the
+                    model can one shot.</p>
+
+                <p>Accessible at <a href="https://claude.ai/code">https://claude.ai/code</a> this interface links in to
+                    your git repo and runs on a customisable remote environment. To test a feature I run a GitHub action
+                    on the automatically generated branch to deploy to a staging environment. PRs can then be created
+                    via the interface and reviewed and merged in GitHub without ever having the code locally. If I want
+                    more fine control on the implementation or to experiment locally I use git work trees to keep things
+                    separate whilst still being able to work on multiple features simultaneously.</p>
+
+                <p>Some features implemented this way:</p>
+                <ul>
+                    <li>dark mode</li>
+                    <li>connect four scoring visualisation</li>
+                </ul>
+
+                <h4>GitHub issues with Claude GitHub action</h4>
+
+                <p>For minor features, bug fixes, documentation, and other small changes.</p>
+
+                <ol>
+                    <li>create issue in GitHub (depending on mental load I'll either write a full 'jira ticket style'
+                        issue off the bat or create a reminder for myself and come back to it later)</li>
+                    <li>when clearly scoped, comment "@claude, assess whether this is required and create a pr if so" or
+                        something similar</li>
+                    <li>the <a href="https://code.claude.com/docs/en/github-actions">Claude GitHub action</a> implements
+                        the change and responds with a link to create a PR</li>
+                    <li>I create the PR with the link and can then asynchronously iterate by writing a comment
+                        mentioning @claude</li>
+                    <li>deploy via GitHub action to the staging environment if it requires manual testing</li>
+                    <li>merge PR and automatically deploy to production</li>
+                </ol>
+
+                <p>Some features implemented this way:</p>
+                <ul>
+                    <li>README.md updates</li>
+                    <li>swap the positions of two UI elements</li>
+                    <li>fix issue with record deletion order</li>
+                </ul>
+
+                <p>Each of these interactions has a different impact on my mental load, for example, I can only really
+                    manage one 'Plan mode' session at once (plus a combination of the other two interaction types).
+                    Managing this mental load is a constant push and pull and is a fresh skill for me, previously I
+                    coveted deep, focused work on a single problem but that seems to take a different form in the new
+                    age. Nowadays, flow state for me looks like having ~2 agents running under direct supervision with
+                    various asynchronous small jobs in the background and <a
+                        href="https://soundcloud.com/thisneverhappenedlabel/sets/mixes">Lane 8</a> playing as a sound
+                    track.</p>
+
+                <h4>Additional habits</h4>
+
+                <p>I use a boilerplate repo containing bare-bones implementations of common functionality and ask the
+                    agents to implement features from it piecemeal - this ensures consistency between applications so
+                    that I don't have to worry about maintaining two different authentication approaches for two
+                    different applications etc.</p>
+
+                <p>I regularly ask agents to cross reference between applications, eg "Implement dark mode, use
+                    ../payout-calculator as a guide for how I like this to look". I will have already had a back and
+                    forth with the agent to get the first implementation the way I want it so this saves time and again
+                    ensures consistency.</p>
+
+                <p>My applications are implemented using the most ubiquitous, standard approaches possible with Next.js,
+                    Shadcn, etc - there is a lot of public code that utilises these so models are good at using them and
+                    labs train specifically for them (although there is some debate about the validity of this
+                    thinking). I have gone slightly off book by deploying via Cloudflare with opennext as a cost saving
+                    measure, in this case I've provided lots of context in CLAUDE.md like pointing the model directly at
+                    the relevant documentation.</p>
+
+                <h3>Personal blog</h3>
+
+                <p>This blog solves a simple problem - I need somewhere to put <em>stuff</em> - with that in mind I
+                    decided to use the simplest tools possible and see how LLMs could handle the scale.</p>
+
+                <p>More info on the approach is available on the <a href="https://sam-molyneux.com/about/">about
+                        page</a> but for development that means that, as an experiment, all the heavy lifting that would
+                    normally be done via a framework (React, Ruby on Rails, Astro) is handled with the new tools that
+                    models provide.</p>
+
+                <p>That means no components and no sass, instead I lean very heavily on <a
+                        href="https://github.com/samMolyneux/sam-molyneux-blog/tree/main/.claude/skills">skills</a> and
+                    agent self checks to keep things aligned which seems to be working okay so far. I quite often ask
+                    the agent to 'do a semantic html/SEO/spelling review of the whole site' then assess and address
+                    raised issues individually or in groups. It raises plenty of things I don't want to change but
+                    that's fine as very often there is also stuff that I do want to fix. One thing I want to try is
+                    wrapping this functionality in some sort of automation - maybe precommit or a GitHub action.</p>
+
+                <p>Whilst creating the <a href="https://sam-molyneux.com/bikepacking/">bikepacking blog posts</a> I've
+                    been really impressed with Claude Code's capability on visual tasks. Through access to tools like
+                    imagemagick it has been effective at:</p>
+                <ul>
+                    <li>generating retro gifs from scratch</li>
+                    <li>creating SVG icons</li>
+                    <li>generating alt text for images</li>
+                    <li>making exposure adjustments with masks</li>
+                </ul>
+
+                <h3>Linux and scripting</h3>
+
+                <p>I recently installed <a href="https://omarchy.org/">Omarchy Linux</a> on my Huawei Matebook D15 to
+                    try something new and to be more intentional with my development setup. If I didn't have access to
+                    Claude Code I would absolutely have switched back to Windows by now. It has reduced the time it
+                    takes me to resolve issues and implement adjustments from a whole day of poking around forums to a
+                    couple message back and forth plus writing <code>sudo</code> a few times.</p>
+
+                <p>I document all scripts, configuration changes and OS related adjustments in markdown files that I
+                    trigger Claude to update.</p>
+
+                <p>The impact on my day to day workflow can be explained through referencing the <a
+                        href="https://xkcd.com/1205/">'Is it worth the time?' xkcd comic</a> - by reducing the time it
+                    takes to implement a script/adjust configuration it becomes sensible to automate/optimise more
+                    things and much more time is saved (do not take this as me claiming a 100% hit rate...).</p>
+
+                <p>I do not use <code>--dangerously-skip-permissions</code> but I do actively keep my list of allowed
+                    commands up to date and relatively broad to help things flow as easily as possible.</p>
+
+                <h3>Managing context</h3>
+
+                <p>Although I rarely find myself actually exceeding the context limits of a model, according to the
+                    experts there is value in keeping a minimal context for model performance. Here are some approaches
+                    I'm using to tailor context to a specific task:</p>
+
+                <h4>Espanso snippets</h4>
+
+                <p>Espanso allows me to type something like ":docs" and have a predefined snippet of text inserted. I
+                    use these to help write high quality prompts more quickly. For example, whenever I am making an
+                    operating system related change I lead with the below snippet then type the actual request below it.
+                </p>
+
+                <blockquote>
+                    <p>My current system is running Omarchy which is based on Arch Linux - it has the following things
+                        configured:</p>
+                    <ul>
+                        <li>Hyprland</li>
+                        <li>Hypridle</li>
+                        <li>Hyprlock</li>
+                        <li>Hyprsunset</li>
+                        <li>Swayosd</li>
+                        <li>Walker</li>
+                        <li>Waybar</li>
+                        <li>Xcompose</li>
+                        <li>Alacritty</li>
+                    </ul>
+                    <p>Whilst completing the following instructions please ensure to use any standard approaches, in
+                        particular when related to these things - do not reinvent the wheel. If you need to run some
+                        diagnostics initially to see if functionality is already implemented by some means then do.</p>
+                </blockquote>
+
+                <h4>Markdown docs</h4>
+
+                <p>I maintain topic specific markdown files in individual repos and in a central obsidian vault that can
+                    be brought into context as required. These contain summaries of how and why I've implemented
+                    features and pointers for using tools. The <em>why</em> is quite important here, there is some
+                    interesting thinking going on around <a
+                        href="https://www.dbreunig.com/2026/03/04/the-spec-driven-development-triangle.html">spec driven
+                        development</a> which suggests that documenting the user need and reasons for technical
+                    decisions will be an important part of development with agents. The topic is also mentioned around
+                    minute 6 of <a
+                        href="https://open.spotify.com/episode/18MpkFtRAb0H8da1tv94Nd?si=0e71bc0c4bd94275">this episode
+                        of Cheeky Pint</a>.</p>
+
+                <p>To reduce friction when referencing the central obsidian vault I've created a sign post in my root
+                    CLAUDE.md that references the exact file location so I can just mention 'claude docs' and the agent
+                    knows where to look.</p>
+
+                <h4>CLAUDE.md</h4>
+
+                <p>I keep strong delineation between project specific context and overarching root context and I aim to
+                    keep the <code>~/.claude/CLAUDE.md</code> as small as possible. Here is what is in there:</p>
+
+                <blockquote>
+                    <p>For image and gif modification use <code>magick</code></p>
+                    <p>When you have performed an operation on an image or gif I will want to view the end result
+                        afterwards using the appropriate tool such as imv or mpv</p>
+                    <p>When asked to "check my claude docs" or similar, look in
+                        <code>/home/sam-molyneux/shared/obsidian/Claude outputs/</code> for relevant documentation.
+                    </p>
+                </blockquote>
+
+                <p>Some of the things I keep in the project specific files are:</p>
+                <ul>
+                    <li>specifications of which technologies to use</li>
+                    <li>exact commands to run</li>
+                    <li>specific corrections for places where the model has slipped up in the past, for example
+                        "remember that the backend will run on cloudflare workers so ensure to use only packages that
+                        will work there"</li>
+                </ul>
+
+                <h2>References and inspirations</h2>
+
+                <p>I'm quite happy with how I've curated my twitter feed to get some of the latest thoughts and news,
+                    here are the highlights:</p>
+
+                <p><a href="https://x.com/bcherny">Boris Cherny</a> - creator of Claude Code at Anthropic, using it to
+                    build more Claude Code. Acts as a really good aggregator of other Anthropic employees and products.
+                    <a href="https://x.com/bcherny/status/2007179832300581177">Boris's version of this post.</a>
+                </p>
+
+                <p><a href="https://x.com/karpathy">Karpathy</a> - previously head of AI at Tesla and a founding member
+                    of OpenAI, coined the term 'vibe coding' - generally a leading thinker in what he now refers to as
+                    'agentic engineering' and AI research more widely. <a
+                        href="https://x.com/karpathy/status/2015883857489522876">Andrej's version of this post</a>.</p>
+
+                <p><a href="https://x.com/levelsio/status/2031913387383312478">Pieter Levels</a> - for the absolute
+                    insanity of remoting into the <em>production</em> server, editing php, javascript, html, and css in
+                    place via Claude Code and only committing to git once a day</p>
+
+                <p><a href="https://x.com/elvissun">Elvis</a> - for a dose of care and caution</p>
+
+                <p><a href="https://world.hey.com/dhh/promoting-ai-agents-3ee04945">DHH's version of this post</a> as a
+                    converted sceptic</p>
+
+                <p><a href="https://x.com/gabriel1">gabriel</a> - OpenAI and general chaos</p>
+
+                <p><a href="https://www.coryzue.com/writing/coding-2026/">Cory zue's version of this post</a></p>
+
+                <p><small>disclaimer: some of these people unfortunately have moral/political views that I strongly
+                        disagree with, please take their ideas and use them for good</small></p>
+
+                <p>As a final note and to reiterate the sentiment from the opening, if you found this useful/interesting
+                    my favourite way for you to show your appreciation would be to write your own version or send me a
+                    tip/critique (if you're seeing it, I value your opinion).</p>
+            </section>
+
+            <section class="block">
+                <h2>How I used AI whilst writing this post</h2>
+
+                <p>Here's how I used LLMs to help create this post:</p>
+                <ul>
+                    <li>small sanity checks and research questions to jog my memory such as 'is this a silly thing to
+                        write: low-stakes-but-still-production' (apparently not) and 'list some static site generators'
+                    </li>
+                    <li>as a first pass editor I used the below prompt</li>
+                </ul>
+
+                <blockquote>
+                    <p>You're going to be my editor for the blog post "How I'm coding in March 2026". You won't directly
+                        edit the file, I'll do that myself.</p>
+                    <p>We're going to go in a few stages:</p>
+                    <ol>
+                        <li>spell checking</li>
+                        <li>grammar checking</li>
+                        <li>flow and structure</li>
+                    </ol>
+                    <p>Ensure that I am happy with the state of each stage before moving onto the next.</p>
+                    <p>In each case please only highlight glaring errors, its important that the voice is maintained.
+                    </p>
+                </blockquote>
+
+                <p>Thanks to <a href="https://georgealexgrant.pages.dev/">George</a> for being my human editor!</p>
+            </section>
+        </article>
+
+        <section class="desc">
+            <a href="https://webring.rewildtheweb.org/prev?from=sam-molyneux.com">&#8592; prev</a>
+            <a href="https://rewildtheweb.org/webring/">
+                <img src="https://rewildtheweb.org/webring-badge.png" alt="rewild the web webring" width="88"
+                    height="31" style="image-rendering:pixelated;">
+            </a>
+            <a href="https://webring.rewildtheweb.org/next?from=sam-molyneux.com">next &#8594;</a>
+        </section>
+    </main>
+</body>
+
+</html>
