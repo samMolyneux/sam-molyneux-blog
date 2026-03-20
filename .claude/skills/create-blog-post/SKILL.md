@@ -3,7 +3,9 @@ name: create-blog-post
 description: Create a new bikepacking blog post from a folder of images
 ---
 
-Create a bikepacking blog post outline from images in the `$ARGUMENTS` folder:
+Create a bikepacking blog post outline from images in the `$ARGUMENTS` folder.
+
+All HTML structure and styling must follow `STYLE_GUIDE.md`. Reference an existing bikepacking post for a working example.
 
 1. Optimize all images in the folder and note orientations from the output:
    ```bash
@@ -15,10 +17,12 @@ Create a bikepacking blog post outline from images in the `$ARGUMENTS` folder:
 
 2. Use Glob to find all images in `images/$ARGUMENTS/`
 
-3. Use AskUserQuestion to prompt for:
+3. For each image, run `identify -format "%w %h" [path]` to get pixel dimensions for the `width` and `height` attributes.
+
+4. Use AskUserQuestion to prompt for:
    - **Blog summary**: A short description for the blog index page (e.g., "Cycling along the coast from Agadir to Sidi Ifni")
 
-4. Add an article entry to both index files:
+5. Add an article entry to both index files:
    - Add to `bikepacking/index.html` at the top (after `<h1>Bikepacking</h1>`)
    - Add to `blog/index.html` at the top (after `<h1>Blog</h1>`)
 
@@ -29,7 +33,7 @@ Create a bikepacking blog post outline from images in the `$ARGUMENTS` folder:
                    <h2>[TITLE]</h2>
                    <p>[DATES COVERED]</p>
                </hgroup>
-               <p><small>Published [TODAY'S DATE]</small></p>
+               <p><small>Published <time datetime="[TODAY'S DATE ISO]">[TODAY'S DATE]</time></small></p>
 
                <p>[BLOG SUMMARY] (<a href="/bikepacking/[FOLDER]">read '[TITLE]'</a>)
                </p>
@@ -37,72 +41,15 @@ Create a bikepacking blog post outline from images in the `$ARGUMENTS` folder:
            </article>
    ```
 
-5. Create `bikepacking/$ARGUMENTS/index.html` using this template:
+6. Create `bikepacking/$ARGUMENTS/index.html` following the Blog Post Page template in STYLE_GUIDE.md (section 4a). Add a `<figure class="block">` for every image. Use the orientation from step 1 for the image class and the dimensions from step 3 for `width`/`height` attributes. Add `loading="lazy"` to all images except the first.
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sam Molyneux - [TITLE]</title>
-    <meta name="description" content="[BLOG SUMMARY]">
-    <link rel="canonical" href="https://sam-molyneux.com/bikepacking/[FOLDER]/">
-    <meta property="og:title" content="Sam Molyneux - [TITLE]">
-    <meta property="og:description" content="[BLOG SUMMARY]">
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://sam-molyneux.com/bikepacking/[FOLDER]/">
-    <meta property="og:image" content="https://sam-molyneux.com/images/[FOLDER]/[FIRST_IMAGE]">
-    <link rel="stylesheet" href="/styles.css">
-</head>
-
-<body>
-    <header>
-        <nav>
-            <a href="/bikepacking" class="link-unstyled"><img src="/gifs/bike.gif" alt="Bikepacking"></a>
-            <a href="/" class="link-unstyled"><span class="site-title">Sam Molyneux</span></a>
-            <a href="/tech" class="link-unstyled"><img src="/gifs/pc-transparent.gif" alt="Tech"></a>
-        </nav>
-    </header>
-
-    <main class="post">
-        <article>
-        <hgroup>
-            <h1>[TITLE]</h1>
-            <p>[DATES COVERED]</p>
-        </hgroup>
-        <p><small>Published [TODAY'S DATE]</small></p>
-
-        <!-- For each image, add a figure block like this: -->
-        <!-- Use feature-image-landscape for landscape images, feature-image-portrait for portrait -->
-        <figure class="block">
-            <img src="/images/[FOLDER]/[FILENAME]"
-                alt=""
-                class="feature-image feature-image-landscape">
-        </figure>
-
-        </article>
-
-        <section class="desc">
-            <p><a href="/about">Why does it feel like I've gone through a time machine?</a></p>
-        </section>
-
-    </main>
-</body>
-
-</html>
-```
-
-6. Replace placeholders:
+7. Replace placeholders:
    - [TITLE] with the folder name, replacing underscores with spaces, using sentence case - capitalize first word and proper nouns only, keep words like "to", "the", "a", "and", "of" lowercase (e.g., "agadir_to_sidi_ifni" becomes "Agadir to Sidi Ifni")
    - [TODAY'S DATE] with today's date formatted as "Month DDth YYYY" (e.g., "January 28th 2026")
+   - [TODAY'S DATE ISO] with today's date in ISO 8601 format (e.g., "2026-01-28")
    - [DATES COVERED] with the date range derived from EXIF dates in step 1
    - [FOLDER] with the folder name as provided
-   - [FILENAME] with each image filename
-   - [BLOG SUMMARY] with the user's answer from step 3
-
-7. Add a figure.block for every image found in the folder. Use the orientation detected in step 1 to set the correct class (`feature-image-landscape` or `feature-image-portrait`) for each image.
+   - [BLOG SUMMARY] with the user's answer from step 4
 
 8. Generate alt text for each image by reading the image file with the Read tool, then writing a concise descriptive alt text for the `alt` attribute. Keep descriptions short (under ~15 words) and focus on the scene content.
 
@@ -132,6 +79,6 @@ Create a bikepacking blog post outline from images in the `$ARGUMENTS` folder:
       </url>
     ```
 
-12. Check that what was created matches the other bikepacking blog posts, highlight any differences to the standard pattern.
+12. Check that what was created matches the other bikepacking blog posts and conforms to STYLE_GUIDE.md, highlight any differences.
 
 13. Report what was created

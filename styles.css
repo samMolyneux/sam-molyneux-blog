@@ -38,6 +38,7 @@ nav h1 {
 
 header img {
   height: 2.5rem;
+  width: auto;
   vertical-align: middle;
   position: relative;
   top: -0.4em;
@@ -83,6 +84,7 @@ h3 {
 
 .projects-list li img {
   height: 1.2em;
+  width: auto;
   vertical-align: middle;
   margin-right: 6px;
 }

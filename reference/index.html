@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sam Molyneux - Markdown Reference</title>
+    <meta name="description" content="Reference page demonstrating how markdown syntax maps to styled HTML on this site.">
+    <link rel="canonical" href="https://sam-molyneux.com/reference/">
+    <link rel="human-json" href="/human.json">
+    <meta property="og:title" content="Sam Molyneux - Markdown Reference">
+    <meta property="og:description" content="Reference page demonstrating how markdown syntax maps to styled HTML on this site.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sam-molyneux.com/reference/">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="/bikepacking" class="link-unstyled"><img src="/gifs/bike.gif" alt="Bikepacking" width="80" height="60"></a>
+            <a href="/" class="link-unstyled"><span class="site-title">Sam Molyneux</span></a>
+            <a href="/tech" class="link-unstyled"><img src="/gifs/pc-transparent.gif" alt="Tech" width="31" height="32"></a>
+        </nav>
+    </header>
+
+    <main class="post">
+        <article>
+            <hgroup>
+                <h1>Markdown to HTML Reference</h1>
+            </hgroup>
+            <p><small>A living reference for how markdown syntax maps to styled HTML on this site</small></p>
+
+            <!-- ===================== -->
+            <!-- HEADINGS              -->
+            <!-- ===================== -->
+
+            <section class="block">
+                <h2>Headings</h2>
+
+                <p>Markdown heading levels map directly to HTML heading elements. <code># Heading</code> is reserved
+                    for the page title inside <code>&lt;hgroup&gt;</code> and should only appear once per page.</p>
+
+                <h3>This is an h3 — <code>### Subsection</code></h3>
+
+                <h4>This is an h4 — <code>#### Sub-subsection</code></h4>
+
+                <p>Headings use <code>color: #2c3e50</code> and scale down at the 768px responsive breakpoint.</p>
+            </section>
+
+            <!-- ===================== -->
+            <!-- PARAGRAPHS            -->
+            <!-- ===================== -->
+
+            <section class="block">
+                <h2>Paragraphs</h2>
+
+                <p>Plain text in markdown becomes a <code>&lt;p&gt;</code> element. Each blank line between text creates
+                    a new paragraph. Body text is <code>color: #333</code> with <code>line-height: 1.6</code>.</p>
+
+                <p>This is a second paragraph, demonstrating the default spacing between consecutive
+                    <code>&lt;p&gt;</code> tags. Browser-default margins are used throughout — no custom paragraph
+                    spacing is applied.</p>
+            </section>
+
+            <!-- ===================== -->
+            <!-- INLINE FORMATTING     -->
+            <!-- ===================== -->
+
+            <section class="block">
+                <h2>Inline Formatting</h2>
+
+                <p>Markdown <code>**bold**</code> becomes <strong>bold</strong> via
+                    <code>&lt;strong&gt;</code>.</p>
+
+                <p>Markdown <code>*italic*</code> becomes <em>italic</em> via <code>&lt;em&gt;</code>.</p>
+
+                <p>Markdown <code>`inline code`</code> becomes <code>inline code</code> via
+                    <code>&lt;code&gt;</code>. It renders in the browser's default monospace font.</p>
+
+                <p>These can be <strong>combined: <em>bold and italic</em></strong> or used with
+                    <code>code</code> in the same sentence.</p>
+            </section>
+
+            <!-- ===================== -->
+            <!-- LINKS                 -->
+            <!-- ===================== -->
+
+            <section class="block">
+                <h2>Links</h2>
+
+                <p>Markdown <code>[text](url)</code> becomes a standard <code>&lt;a&gt;</code> element:
+                    <a href="https://sam-molyneux.com/about/">this is a content link</a>. Content links use default
+                    browser styling (blue, underlined).</p>
+
+                <p>Navigation and decorative links use the <code>link-unstyled</code> class to remove colour and
+                    underline — this is used in the header and for image-wrapping links, not for inline content
+                    links.</p>
+            </section>
+
+            <!-- ===================== -->
+            <!-- UNORDERED LISTS       -->
+            <!-- ===================== -->
+
+            <section class="block">
+                <h2>Unordered Lists</h2>
+
+                <p>Markdown <code>- item</code> becomes <code>&lt;ul&gt;&lt;li&gt;</code>:</p>
+
+                <ul>
+                    <li>First item in an unordered list</li>
+                    <li>Second item with <strong>bold text</strong> and a <a href="/about">link</a></li>
+                    <li>Third item with <code>inline code</code></li>
+                </ul>
+
+                <p>Default browser bullet styling is used. No custom list margins or styles are applied.</p>
+            </section>
+
+            <!-- ===================== -->
+            <!-- ORDERED LISTS         -->
+            <!-- ===================== -->
+
+            <section class="block">
+                <h2>Ordered Lists</h2>
+
+                <p>Markdown <code>1. item</code> becomes <code>&lt;ol&gt;&lt;li&gt;</code>:</p>
+
+                <ol>
+                    <li>First step in a process</li>
+                    <li>Second step with <em>emphasis</em></li>
+                    <li>Third step referencing <code>some command</code></li>
+                </ol>
+            </section>
+
+            <!-- ===================== -->
+            <!-- BLOCKQUOTES           -->
+            <!-- ===================== -->
+
+            <section class="block">
+                <h2>Blockquotes</h2>
+
+                <p>Markdown <code>&gt; quoted text</code> becomes a <code>&lt;blockquote&gt;</code>:</p>
+
+                <blockquote>
+                    <p>This is a blockquote. It has a 3px solid <code>#999</code> left border, text colour
+                        <code>#555</code>, and 1em left padding.</p>
+                </blockquote>
+
+                <p>Blockquotes can contain multiple block-level elements:</p>
+
+                <blockquote>
+                    <p>A blockquote with a paragraph followed by a list:</p>
+                    <ul>
+                        <li>Item inside a blockquote</li>
+                        <li>Another item inside a blockquote</li>
+                    </ul>
+                    <p>And another paragraph after the list.</p>
+                </blockquote>
+
+                <p>Nested blockquotes are not used on this site. Keep blockquotes flat.</p>
+            </section>
+
+            <!-- ===================== -->
+            <!-- SMALL / META TEXT     -->
+            <!-- ===================== -->
+
+            <section class="block">
+                <h2>Small / Meta Text</h2>
+
+                <p>Published dates and disclaimers use <code>&lt;small&gt;</code> inside a paragraph.
+                    Dates must be wrapped in a <code>&lt;time datetime="YYYY-MM-DD"&gt;</code> element for
+                    machine readability:</p>
+
+                <p><small>Published <time datetime="2026-03-20">March 20th 2026</time></small></p>
+
+                <p><small>This is a disclaimer or aside rendered at a smaller size.</small></p>
+
+                <p>The <code>datetime</code> attribute uses ISO 8601 format (<code>YYYY-MM-DD</code>) while the
+                    visible text uses the human-friendly format (<code>Month Dayth Year</code>).</p>
+            </section>
+
+            <!-- ===================== -->
+            <!-- IMAGES                -->
+            <!-- ===================== -->
+
+            <section class="block">
+                <h2>Images</h2>
+
+                <p>Markdown <code>![alt text](src)</code> maps to a full <code>&lt;figure&gt;</code> block. Images
+                    are never placed inside text sections — they always get their own block.</p>
+
+                <p>There are two image classes:</p>
+                <ul>
+                    <li><code>feature-image-landscape</code> — 100% width, for wide/landscape images</li>
+                    <li><code>feature-image-portrait</code> — 50% width, for tall/portrait images</li>
+                </ul>
+
+                <p>Both require the base <code>feature-image</code> class. All images must include
+                    <code>width</code> and <code>height</code> attributes (actual pixel dimensions) to prevent
+                    layout shift. All images except the first on each page should have
+                    <code>loading="lazy"</code>.</p>
+            </section>
+
+            <figure class="block">
+                <img src="/gifs/bike.gif"
+                    alt="Example landscape image — the bike gif used in site navigation"
+                    width="80" height="60"
+                    class="feature-image feature-image-landscape">
+                <figcaption>Landscape image with a caption. The <code>&lt;figcaption&gt;</code> is optional. This is the
+                    first image on the page, so it does not have <code>loading="lazy"</code>.</figcaption>
+            </figure>
+
+            <figure class="block">
+                <img src="/gifs/pc-transparent.gif"
+                    alt="Example portrait image — the PC gif used in site navigation"
+                    width="31" height="32"
+                    loading="lazy"
+                    class="feature-image feature-image-portrait">
+                <figcaption>Portrait image at 50% width, centered.</figcaption>
+            </figure>
+
+            <!-- ===================== -->
+            <!-- THEMATIC BREAKS       -->
+            <!-- ===================== -->
+
+            <section class="block">
+                <h2>Thematic Breaks</h2>
+
+                <p>Markdown <code>---</code> does not map to an <code>&lt;hr&gt;</code> tag. Instead, start a new
+                    <code>&lt;section class="block"&gt;</code>. The visual separation between blocks (whitesmoke
+                    boxes with gaps between them) serves as the thematic break.</p>
+            </section>
+
+            <section class="block">
+                <p>This is a new section block — the gap between this and the previous block is how thematic
+                    separation is achieved on this site.</p>
+            </section>
+
+            <!-- ===================== -->
+            <!-- COMBINED EXAMPLE      -->
+            <!-- ===================== -->
+
+            <section class="block">
+                <h2>Combined Example</h2>
+
+                <p>A realistic section combining multiple elements as they would appear in an actual blog post:</p>
+
+                <h3>Getting started</h3>
+
+                <p>To set up the project you'll need to install the dependencies with <code>npm install</code> and
+                    then configure the following:</p>
+
+                <ol>
+                    <li>Clone the repository</li>
+                    <li>Run <code>npm install</code></li>
+                    <li>Create a <code>.env</code> file based on the example</li>
+                </ol>
+
+                <p>Some things to keep in mind:</p>
+
+                <ul>
+                    <li><strong>Performance</strong> — keep the bundle size small</li>
+                    <li><em>Accessibility</em> — use semantic HTML throughout</li>
+                    <li>Read the <a href="/about">about page</a> for more context</li>
+                </ul>
+
+                <blockquote>
+                    <p>The simplest tools for the job, in the spirit of the indie web.</p>
+                </blockquote>
+
+                <p><small>This example is for reference purposes only.</small></p>
+            </section>
+
+            <!-- ===================== -->
+            <!-- HEADING GROUPS        -->
+            <!-- ===================== -->
+
+            <section class="block">
+                <h2>Heading Groups</h2>
+
+                <p>The <code>&lt;hgroup&gt;</code> element pairs a heading with a subtitle or date range. It is used
+                    for post titles (with <code>&lt;h1&gt;</code>) and listing entries (with <code>&lt;h2&gt;</code>).
+                    Margins on headings inside <code>&lt;hgroup&gt;</code> are reset to 0.</p>
+
+                <hgroup>
+                    <h3>Example Post Title</h3>
+                    <p>January 3rd to 5th 2026</p>
+                </hgroup>
+
+                <p>The date range paragraph inside <code>&lt;hgroup&gt;</code> is used for bikepacking posts. Tech
+                    posts typically omit it.</p>
+            </section>
+
+        </article>
+
+        <!-- ===================== -->
+        <!-- PAGE FOOTER           -->
+        <!-- ===================== -->
+
+        <footer class="desc">
+            <p>Footer content uses <code>&lt;footer class="desc"&gt;</code> rather than
+                <code>&lt;section&gt;</code>. On blog posts this contains the "time machine" link.
+                On listing pages it also includes an RSS link.</p>
+        </footer>
+    </main>
+</body>
+
+</html>
