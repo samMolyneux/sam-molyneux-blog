@@ -6,6 +6,12 @@
     <description>All posts - bikepacking and technical writing</description>
     <atom:link href="https://sam-molyneux.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
+      <title>Ronda to Malaga</title>
+      <link>https://sam-molyneux.com/bikepacking/ronda_to_malaga</link>
+      <pubDate>Tue, 07 Apr 2026 00:00:00 +0000</pubDate>
+      <description>A bit of a head wind and fun descents through the Sierra Nieves</description>
+    </item>
+    <item>
       <title>Ronda</title>
       <link>https://sam-molyneux.com/bikepacking/ronda</link>
       <pubDate>Tue, 07 Apr 2026 00:00:00 +0000</pubDate>
