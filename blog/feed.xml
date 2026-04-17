@@ -6,6 +6,12 @@
     <description>All posts - bikepacking and technical writing</description>
     <atom:link href="https://sam-molyneux.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
+      <title>Highlights from the Claude Mythos Preview System Card</title>
+      <link>https://sam-molyneux.com/tech/claude_mythos_system_card</link>
+      <pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate>
+      <description>A first read of an Anthropic System Card</description>
+    </item>
+    <item>
       <title>Ronda to Malaga</title>
       <link>https://sam-molyneux.com/bikepacking/ronda_to_malaga</link>
       <pubDate>Tue, 07 Apr 2026 00:00:00 +0000</pubDate>
