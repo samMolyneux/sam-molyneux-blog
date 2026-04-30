@@ -17,7 +17,11 @@ All HTML structure and styling must follow `STYLE_GUIDE.md`. Reference an existi
 
 2. Use Glob to find all images in `images/$ARGUMENTS/`
 
-3. For each image, run `identify -format "%w %h" [path]` to get pixel dimensions for the `width` and `height` attributes.
+3. Get pixel dimensions for the `width` and `height` attributes by passing all images to `identify` in a single invocation (avoid bash `for` loops — they trigger a permission prompt with "Unhandled node type: string"):
+
+   ```bash
+   identify -format "%f %w %h\n" images/$ARGUMENTS/*.JPG
+   ```
 
 4. Use AskUserQuestion to prompt for:
    - **Blog summary**: A short description for the blog index page (e.g., "Cycling along the coast from Agadir to Sidi Ifni")

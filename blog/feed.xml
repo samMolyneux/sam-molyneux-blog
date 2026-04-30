@@ -6,6 +6,12 @@
     <description>All posts - bikepacking and technical writing</description>
     <atom:link href="https://sam-molyneux.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
+      <title>Granada to Cordoba</title>
+      <link>https://sam-molyneux.com/bikepacking/granada_to_cordoba</link>
+      <pubDate>Thu, 30 Apr 2026 00:00:00 +0000</pubDate>
+      <description>Following the Camino Mozarabe de Santiago to Cordoba</description>
+    </item>
+    <item>
       <title>Granada and Sierra Nevada</title>
       <link>https://sam-molyneux.com/bikepacking/granada_and_sierra_nevada</link>
       <pubDate>Thu, 30 Apr 2026 00:00:00 +0000</pubDate>
