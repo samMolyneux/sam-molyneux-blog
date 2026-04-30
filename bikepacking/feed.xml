@@ -6,6 +6,12 @@
     <description>Bikepacking photos and stories</description>
     <atom:link href="https://sam-molyneux.com/bikepacking/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
+      <title>Malaga to Granada</title>
+      <link>https://sam-molyneux.com/bikepacking/malaga_to_granada</link>
+      <pubDate>Thu, 30 Apr 2026 00:00:00 +0000</pubDate>
+      <description>Empty gravel track through Parque Natural de Sierras de Tejeda, Almijara y Alhama</description>
+    </item>
+    <item>
       <title>Ronda to Malaga</title>
       <link>https://sam-molyneux.com/bikepacking/ronda_to_malaga</link>
       <pubDate>Tue, 07 Apr 2026 00:00:00 +0000</pubDate>
