@@ -6,6 +6,12 @@
     <description>Bikepacking photos and stories</description>
     <atom:link href="https://sam-molyneux.com/bikepacking/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
+      <title>Photo highlights: Spain, France, and the South Downs</title>
+      <link>https://sam-molyneux.com/bikepacking/highlights_spain_france_south_downs</link>
+      <pubDate>Tue, 26 May 2026 00:00:00 +0000</pubDate>
+      <description>A gallery of the photos I've done some editing to from this section of the trip.</description>
+    </item>
+    <item>
       <title>Portsmouth to Reigate</title>
       <link>https://sam-molyneux.com/bikepacking/portsmouth_to_reigate</link>
       <pubDate>Tue, 26 May 2026 00:00:00 +0000</pubDate>

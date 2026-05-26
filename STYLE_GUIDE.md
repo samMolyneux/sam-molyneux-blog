@@ -228,6 +228,36 @@ All content lives inside either `<section class="block">` (for text) or `<figure
 - All images except the first on each page must include `loading="lazy"` (the first image is above the fold).
 - Nav header GIFs and project list GIFs include `width`/`height` but never `loading="lazy"` (always above the fold).
 
+### Photo Gallery
+
+For posts that are a curated wall of photos (rather than the sequential figure-per-block layout), use a single `.gallery` grid inside one block. This is the exception to the "one image per block" rule — all gallery images share one container.
+
+```html
+<section class="block gallery">
+    <figure>
+        <img src="/images/[slug]/[file].JPG" alt="..." width="1920" height="1440">
+    </figure>
+
+    <!-- A pair: two figures marked pair-item sit side by side (stack on mobile) -->
+    <figure class="pair-item">
+        <img src="/images/[slug]/[a].JPG" alt="..." width="1920" height="2400" loading="lazy">
+    </figure>
+    <figure class="pair-item">
+        <img src="/images/[slug]/[b].JPG" alt="..." width="1920" height="2400" loading="lazy">
+    </figure>
+</section>
+```
+
+Rules:
+
+- `.gallery` is a two-column CSS grid (`grid-template-columns: 1fr 1fr`, `gap: 20px`). No flexbox.
+- Solo `<figure>` children span the full width (`grid-column: 1 / -1`).
+- A `<figure class="pair-item">` occupies one column, so two consecutive `pair-item` figures form a side-by-side pair.
+- Below 768px the grid collapses to one column and `pair-item` figures stack full-width.
+- Gallery `<img>` elements need no class — `.gallery img` makes them fill their cell (`width: 100%`). Do not use `feature-image`/`feature-image-portrait` here; orientation is handled by the grid.
+- `width`/`height` attributes and `loading="lazy"` (all but the first image) rules still apply.
+- Captions are omitted in gallery mode (the wall is the point); add `<figcaption>` only if a specific image needs one.
+
 ---
 
 ## 7. Typography
@@ -321,6 +351,8 @@ All content lives inside either `<section class="block">` (for text) or `<figure
 | `.feature-image` | `img` | Block display, centered |
 | `.feature-image-landscape` | `img` | 100% width |
 | `.feature-image-portrait` | `img` | 50% width |
+| `.gallery` | `section` | Photo-wall container: two-column CSS grid, 20px gap |
+| `.pair-item` | `figure` | Gallery figure that occupies one column (two in a row = a pair) |
 | `.projects-list` | `ul` wrapper | Homepage project list |
 
 ---
