@@ -6,6 +6,12 @@
     <description>All posts - bikepacking and technical writing</description>
     <atom:link href="https://sam-molyneux.com/blog/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
+      <title>Portsmouth to Reigate</title>
+      <link>https://sam-molyneux.com/bikepacking/portsmouth_to_reigate</link>
+      <pubDate>Tue, 26 May 2026 00:00:00 +0000</pubDate>
+      <description>Slightly surreal day in the South of England</description>
+    </item>
+    <item>
       <title>La Rochelle to Caen</title>
       <link>https://sam-molyneux.com/bikepacking/la_rochelle_to_caen</link>
       <pubDate>Tue, 26 May 2026 00:00:00 +0000</pubDate>
